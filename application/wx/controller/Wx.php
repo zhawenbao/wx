@@ -138,40 +138,45 @@ class WX extends Controller
 		            "button":
 		            [
 		                {    
-		                    "type":"click",
-		                    "name":"今日歌曲",
-		                    "key":"music"
+		                    "name":"关于我们",
+		                    "sub_button":
+		                    [
+		                        {    
+		                            "type":"click",
+		                            "name":"联系我们",
+		                            "key":"
+		                                1.编辑部:010-57368789 <br\/>
+		                                2.微信推广 <br\/>
+		                                3.广告理事会 <br\/>
+		                            "
+		                        }
+		                    ]
 		                },
 		                {
-		                    "name":"新闻",
+		                    "name":"商城",
 		                    "sub_button":
 		                    [
 		                        {    
 		                            "type":"view",
-		                            "name":"搜索",
-		                            "url":"http://www.soso.com/"
+		                            "name":"京东商城",
+		                            "url":"http://www.jd.com"
 		                        },
 		                        {
 		                            "type":"view",
-		                            "name":"百度一下",
-		                            "url": "https://www.baidu.com"
+		                            "name":"淘宝商城",
+		                            "url": "https://www.taobao.com"
 		                        },
-		                        {
-		                            "type":"click",
-		                            "name":"赞一下我们",
-		                            "key":"praise"
-		                        }
 		                    ]
 		                },
-		                {    
-		                    "type":"click",
-		                    "name":"点我惊喜",
-		                    "key":"surprise"
-		                }
+		                {
+                            "type": "pic_sysphoto", 
+                            "name": "系统拍照发图", 
+                            "key": "rselfmenu_1_0", 
+                            "sub_button": [ ]
+                        }, 
 		            ]
 		        }';
         $res = $this->post($api, $menuData);
-//        var_dump($res);
     }
 
     // 图灵机器人自动回复
