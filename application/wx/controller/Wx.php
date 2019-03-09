@@ -132,7 +132,6 @@ class WX extends Controller
     {
         $appid = $this->appid;
         $access_token = $this->getAccessToken();
-        file_put_contents('access_token.text', json_encode($access_token), 1);
         $api = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;
         $menuData = '
 		        {
@@ -214,7 +213,7 @@ class WX extends Controller
     // 回复图片
     private function responseImage($file)
     {
-        file_put_contents('1.jpg', file_get_contents($file));
+//        file_put_contents('1.jpg', file_get_contents($file));
         $media_id = $this->getMediaId('1.jpg', 'image');
         $imageTpl = "<xml>
 						  <ToUserName><![CDATA[%s]]></ToUserName>
