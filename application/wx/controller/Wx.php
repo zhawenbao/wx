@@ -21,6 +21,10 @@ class WX extends Controller
 {
     public const TOKEN = 'weixin';
 
+    public function index()
+    {
+        $this->valid();
+    }
     public function valid()
     {
         $echoStr = $_GET["echostr"];
