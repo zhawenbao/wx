@@ -137,17 +137,6 @@ class WX extends Controller
 		        {
 		            "button":
 		            [
-		                {    
-		                    "name":"关于我们",
-		                    "sub_button":
-		                    [
-		                        {    
-		                            "type":"click",
-		                            "name":"联系我们",
-		                            "key":"你好"
-		                        }
-		                    ]
-		                },
 		                {
 		                    "name":"商城",
 		                    "sub_button":
@@ -159,10 +148,30 @@ class WX extends Controller
 		                        },
 		                        {
 		                            "type":"view",
-		                            "name":"淘宝商城",
-		                            "url": "http://www.taobao.com"
+		                            "name":"苏宁易购",
+		                            "url": "https://www.suning.com"
+		                        },
+		                        {
+		                            "type":"view",
+		                            "name":"天猫商城",
+		                            "url": "https://s.click.taobao.com"
+		                        },
+		                        {
+		                            "type":"view",
+		                            "name":"拼多多",
+		                            "url": "https://www.pinduoduo.com"
 		                        },
 		                    ]
+		                },
+		                {    
+		                    "type": "view", 
+                            "name": "百度搜索", 
+                            "url": "http://www.baidu.com", 
+		                },
+		                {    
+		                    "type": "view", 
+                            "name": "随心听", 
+                            "url": "http://www.5nd.com/fm/app.html", 
 		                },
 		            ]
 		        }';
