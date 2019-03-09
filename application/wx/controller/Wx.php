@@ -42,13 +42,13 @@ class WX extends Controller
 
     public function index()
     {
-        if ($_REQUEST['echostr']) {
-            // 校验签名
-            $this->checkSignature();
-        } else {
+//        if ($_REQUEST['echostr']) {
+//            // 校验签名
+//            $this->checkSignature();
+//        } else {
 //            $this->diyMenu();
             $this->reply();
-        }
+//        }
     }
 
     // 验证签名
