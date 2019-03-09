@@ -23,5 +23,6 @@ class Index extends Controller
     public function test()
     {
         echo  1;
+        echo "今天天气很好";
     }
 }
