@@ -19,7 +19,7 @@ use think\Request;
 
 class WX extends Controller
 {
-    public const TOKEN = 'weixin';
+    const TOKEN = 'weixin';
 
     public function index()
     {

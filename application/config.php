@@ -240,4 +240,9 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    //wx配置文件
+    'wxConfig'              =>  [
+
+    ]
 ];
