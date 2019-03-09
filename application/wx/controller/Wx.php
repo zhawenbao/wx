@@ -42,7 +42,7 @@ class WX extends Controller
 
     public function index()
     {
-        if ($_GET['echostr']) {
+        if ($_REQUEST['echostr']) {
             // 校验签名
             $this->checkSignature();
         } else {
