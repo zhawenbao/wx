@@ -37,8 +37,6 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-        $access_token = $this->getAccessToken();
-        file_put_contents('access_token.text', json_encode($access_token), 1);
 //        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
