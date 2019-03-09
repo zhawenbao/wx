@@ -144,11 +144,7 @@ class WX extends Controller
 		                        {    
 		                            "type":"click",
 		                            "name":"联系我们",
-		                            "key":"
-		                                1.编辑部:010-57368789 <br\/>
-		                                2.微信推广 <br\/>
-		                                3.广告理事会 <br\/>
-		                            "
+		                            "key":"你好"
 		                        }
 		                    ]
 		                },
@@ -164,16 +160,10 @@ class WX extends Controller
 		                        {
 		                            "type":"view",
 		                            "name":"淘宝商城",
-		                            "url": "https://www.taobao.com"
+		                            "url": "http://www.taobao.com"
 		                        },
 		                    ]
 		                },
-		                {
-                            "type": "pic_sysphoto", 
-                            "name": "系统拍照发图", 
-                            "key": "rselfmenu_1_0", 
-                            "sub_button": [ ]
-                        }, 
 		            ]
 		        }';
         $res = $this->post($api, $menuData);
