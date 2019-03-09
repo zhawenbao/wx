@@ -37,17 +37,17 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-        file_put_contents('./a.txt', json_encode($postObj, 1));
+//        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
     public function index()
     {
-        if ($_GET['echostr']) {
+        if (isset($_REQUEST['echostr'])) {
             // 校验签名
             $this->checkSignature();
         } else {
-            $this->diyMenu();
             $this->reply();
+            $this->diyMenu();
         }
     }
 
@@ -96,7 +96,7 @@ class WX extends Controller
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
             default:
-                $resultStr = $this->responseText('welcome！');
+
                 break;
         }
 
@@ -171,7 +171,7 @@ class WX extends Controller
 		            ]
 		        }';
         $res = $this->post($api, $menuData);
-        var_dump($res);
+//        var_dump($res);
     }
 
     // 图灵机器人自动回复
