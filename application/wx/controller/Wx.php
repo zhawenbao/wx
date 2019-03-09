@@ -134,47 +134,49 @@ class WX extends Controller
         $access_token = $this->getAccessToken();
         $api = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;
         $menuData = '
-		        {
+            {
+		        "menu":{
 		            "button":
-		            [
-		                {
-		                    "name":"商城",
-		                    "sub_button":
-		                    [
-		                        {    
-		                            "type":"view",
-		                            "name":"京东商城",
-		                            "url":"http://www.jd.com"
-		                        },
-		                        {
-		                            "type":"view",
-		                            "name":"苏宁易购",
-		                            "url": "https://www.suning.com"
-		                        },
-		                        {
-		                            "type":"view",
-		                            "name":"天猫商城",
-		                            "url": "https://s.click.taobao.com"
-		                        },
-		                        {
-		                            "type":"view",
-		                            "name":"拼多多",
-		                            "url": "https://www.pinduoduo.com"
-		                        },
-		                    ]
-		                },
-		                {    
-		                    "type": "view", 
-                            "name": "百度搜索", 
-                            "url": "http://www.baidu.com", 
-		                },
-		                {    
-		                    "type": "view", 
-                            "name": "随心听", 
-                            "url": "http://www.5nd.com/fm/app.html", 
-		                },
-		            ]
-		        }';
+                        [
+                            {
+                                "name":"商城",
+                                "sub_button":
+                                [
+                                    {    
+                                        "type":"view",
+                                        "name":"京东商城",
+                                        "url":"http://www.jd.com"
+                                    },
+                                    {
+                                        "type":"view",
+                                        "name":"苏宁易购",
+                                        "url": "https://www.suning.com"
+                                    },
+                                    {
+                                        "type":"view",
+                                        "name":"天猫商城",
+                                        "url": "https://s.click.taobao.com"
+                                    },
+                                    {
+                                        "type":"view",
+                                        "name":"拼多多",
+                                        "url": "https://www.pinduoduo.com"
+                                    },
+                                ]
+                            },
+                            {    
+                                "type": "view", 
+                                "name": "百度搜索", 
+                                "url": "http://www.baidu.com", 
+                            },
+                            {    
+                                "type": "view", 
+                                "name": "随心听", 
+                                "url": "http://www.5nd.com/fm/app.html", 
+                            },
+                        ]
+		        }    
+		    }';
         $res = $this->post($api, $menuData);
     }
 
