@@ -138,6 +138,18 @@ class WX extends Controller
 		        "menu":{
 		            "button":
                         [
+                            {    
+                                "type": "view", 
+                                "name": "百度搜索", 
+                                "url": "http://www.baidu.com", 
+                                "sub_button": [ ]
+                            },
+                            {    
+                                "type": "view", 
+                                "name": "随心听", 
+                                "url": "http://www.5nd.com/fm/app.html", 
+                                "sub_button": [ ]
+                            },
                             {
                                 "name":"商城",
                                 "sub_button":
@@ -163,18 +175,6 @@ class WX extends Controller
                                         "url": "https://www.pinduoduo.com"
                                     },
                                 ]
-                            },
-                            {    
-                                "type": "view", 
-                                "name": "百度搜索", 
-                                "url": "http://www.baidu.com", 
-                                "sub_button": [ ]
-                            },
-                            {    
-                                "type": "view", 
-                                "name": "随心听", 
-                                "url": "http://www.5nd.com/fm/app.html", 
-                                "sub_button": [ ]
                             },
                         ]
 		        }    
