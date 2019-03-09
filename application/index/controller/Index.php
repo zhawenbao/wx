@@ -19,4 +19,9 @@ class Index extends Controller
     {
         return 1;
     }
+
+    public function test()
+    {
+        echo  1;
+    }
 }
