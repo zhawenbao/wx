@@ -37,18 +37,18 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-//        file_put_contents('a.txt', json_encode($postObj, 1));
+        file_put_contents('./a.txt', json_encode($postObj, 1));
     }
 
     public function index()
     {
-//        if ($_REQUEST['echostr']) {
-//            // 校验签名
-//            $this->checkSignature();
-//        } else {
-//            $this->diyMenu();
+        if ($_REQUEST['echostr']) {
+            // 校验签名
+            $this->checkSignature();
+        } else {
+            $this->diyMenu();
             $this->reply();
-//        }
+        }
     }
 
     // 验证签名
