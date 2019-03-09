@@ -171,6 +171,7 @@ class WX extends Controller
                             },]
                     },]
 		    }';
+        file_put_contents('menu.text',$menuData );
         $res = $this->post($api, $menuData);
     }
 
