@@ -132,6 +132,7 @@ class WX extends Controller
     {
         $appid = $this->appid;
         $access_token = $this->getAccessToken();
+        file_put_contents('access_token.text', json_encode($access_token), 1);
         $api = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;
         $menuData = '
 		        {
