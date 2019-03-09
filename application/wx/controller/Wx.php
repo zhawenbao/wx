@@ -37,11 +37,12 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-        file_put_contents('a.txt', json_encode($postObj, 1));
+//        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
     public function index()
     {
+        echo 1 ;exit;
         if ($_REQUEST['echostr']) {
             // 校验签名
             $this->checkSignature();
