@@ -46,7 +46,7 @@ class WX extends Controller
             // 校验签名
             $this->checkSignature();
         } else {
-            $this->diyMenu();
+//            $this->diyMenu();
             $this->reply();
         }
     }
@@ -96,7 +96,7 @@ class WX extends Controller
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
             default:
-                # code...
+                $resultStr = $this->responseText('welcome！');
                 break;
         }
 
