@@ -23,6 +23,7 @@ class WX extends Controller
 
     public function index()
     {
+        echo 1;exit;
         $this->valid();
     }
     public function valid()
