@@ -87,7 +87,7 @@ class WX extends Controller
                 $resultStr = $this->voice();
                 break;
             case 'image':
-
+                $resultStr = '';
                 break;
             default:
                 # code...
