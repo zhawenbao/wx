@@ -86,7 +86,7 @@ class WX extends Controller
             case 'voice':
                 $resultStr = $this->voice();
                 break;
-            case 'LOCATION':
+            case 'location':
                 $resultStr = $this->location();
                 break;
             default:
@@ -243,7 +243,7 @@ class WX extends Controller
     private function responseImage($file)
     {
 //        file_put_contents('1.jpg', file_get_contents($file));
-        $media_id = $this->getMediaId('1.jpg', 'image');
+        $media_id = $this->getMediaId($file, 'image');
         $imageTpl = "<xml>
 						  <ToUserName><![CDATA[%s]]></ToUserName>
 						  <FromUserName><![CDATA[%s]]></FromUserName>
@@ -260,20 +260,19 @@ class WX extends Controller
     // 回复图片
     private function location($file)
     {
-        $api = 'https://restapi.amap.com/v3/ip?key=' . $this->gdKey. 'ip=' . $_SERVER['REMOTE_ADDR'];
-        $res = $this->post($api);
-        file_put_contents('location.txt', json_encode($res, 1));
+        $media_id = $this->getMediaId($file, 'location');
         $imageTpl = "<xml>
                         <ToUserName><![CDATA[toUser]]></ToUserName>
                         <FromUserName><![CDATA[fromUser]]></FromUserName>
                         <CreateTime>s%</CreateTime>
-                        <MsgType><![CDATA[event]]></MsgType>
-                        <Event><![CDATA[LOCATION]]></Event>
-                        <Latitude>23.137466</Latitude>
-                        <Longitude>113.352425</Longitude>
-                        <Precision>119.385040</Precision>
+                        <MsgType><![CDATA[location]]></MsgType>
+                        <Location_X>s%</Location_X>
+                        <Location_Y>s%</Location_Y>
+                        <Scale>20</Scale>
+                        <Label><![CDATA[s%]]></Label>
+                        <MsgId>s%</MsgId>
                     </xml>";
-        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time());
+        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $dimension,$longitude, $address, $media_id);
         return $resultStr;
     }
 
