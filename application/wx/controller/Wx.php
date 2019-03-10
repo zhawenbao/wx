@@ -105,6 +105,9 @@ class WX extends Controller
                 break;
             case 'click' && '详情介绍':
                 $resultStr = $this->responseText($this->content());
+                break;
+            case 'location':
+                $resultStr = $this->location();
             default:
 
                 break;
