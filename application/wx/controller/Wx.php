@@ -246,7 +246,8 @@ class WX extends Controller
     // 回复图片
     private function responseImage($file)
     {
-        $media_id = $this->getMediaId($file, 'image');
+        file_put_contents('1.jpg', file_get_contents($file));
+        $media_id = $this->getMediaId('1.jpg', 'image');
 //        file_put_contents('1.jpg', file_get_contents($file));
         $imageTpl = "<xml>
                         <ToUserName><![CDATA[%s]]></ToUserName>
