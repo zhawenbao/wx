@@ -49,7 +49,8 @@ class WX extends Controller
             $this->checkSignature();
         } else {
             $this->reply();
-            $this->diyMenu();
+//            $this->diyMenu();  //自定義菜單
+            $this->deleteMenu; //刪除菜單
         }
     }
 
@@ -103,7 +104,7 @@ class WX extends Controller
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
             case 'click' && '详情介绍':
-                $resultStr = $this->responseText('这是我对你的介绍！');
+                $resultStr = $this->responseText('这是我对你的介绍');
             default:
 
                 break;
@@ -186,6 +187,13 @@ class WX extends Controller
             }';
 //        file_put_contents('menu.text',$menuData );
         $res = $this->post($api, $menuData);
+    }
+
+    //刪除菜單
+    private function deleteMenu()
+    {
+        $api = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $this->getAccessToken();
+        $res = $this->post($api);
     }
 
     // 图灵机器人自动回复
