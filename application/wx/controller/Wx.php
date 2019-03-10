@@ -133,8 +133,8 @@ class WX extends Controller
     private function content()
     {
         return "1.编辑部：010-57368789,
-                010-57368790
-                2.微信推广
+                010-57368790 /r/n
+                2.微信推广 /r/n
                 3.广告、理事会";
     }
 
@@ -203,7 +203,7 @@ class WX extends Controller
     {
         $api = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $this->getAccessToken();
         $res = $this->post($api);
-        file_put_contents('delMenu.txt', json_decode($res, 1));
+//        file_put_contents('delMenu.txt', json_decode($res, 1));
     }
 
     // 图灵机器人自动回复
