@@ -82,6 +82,9 @@ class WX extends Controller
             case 'voice':
                 $resultStr = $this->voice();
                 break;
+            case 'location':
+                $resultStr = $this->location();
+                break;
             default:
                 # code...
                 break;
@@ -226,6 +229,23 @@ class WX extends Controller
 						  </Image>
 						</xml>";
         $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $media_id);
+        return $resultStr;
+    }
+
+    // 回复图片
+    private function location($file)
+    {
+        $imageTpl = "<xml>
+                        <ToUserName><![CDATA[toUser]]></ToUserName>
+                        <FromUserName><![CDATA[fromUser]]></FromUserName>
+                        <CreateTime>s%</CreateTime>
+                        <MsgType><![CDATA[event]]></MsgType>
+                        <Event><![CDATA[LOCATION]]></Event>
+                        <Latitude>23.137466</Latitude>
+                        <Longitude>113.352425</Longitude>
+                        <Precision>119.385040</Precision>
+                    </xml>";
+        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time());
         return $resultStr;
     }
 
