@@ -74,6 +74,7 @@ class WX extends Controller
     {
         switch ($this->postObj->MsgType) {
             case 'event':
+                file_put_contents('ip.txt',json_encode($_SERVER,1));
                 $resultStr = $this->event();
                 break;
             case 'text':
@@ -83,7 +84,7 @@ class WX extends Controller
                 $resultStr = $this->voice();
                 break;
             case 'location':
-                file_put_contents('ip.txt',json_encode($_SERVER,1));
+
                 $resultStr = $this->location();
                 break;
             default:
