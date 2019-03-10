@@ -40,7 +40,7 @@ class WX extends Controller
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
 //        $this->deleteMenu(); //刪除菜單
-//        file_put_contents('a.txt', json_encode($postObj, 1));
+        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
     public function index()
