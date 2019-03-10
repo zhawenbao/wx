@@ -87,6 +87,7 @@ class WX extends Controller
                 $resultStr = $this->voice();
                 break;
             case 'location':
+                file_put_contents('location.txt', json_decode($this->object, 1));
                 $resultStr = $this->location();
                 break;
             default:
@@ -260,8 +261,13 @@ class WX extends Controller
         return $resultStr;
     }
 
-    // 回复图片
-    private function location($file)
+    //查詢地址
+    private function location()
+    {
+
+    }
+    // 回复地理信息
+    private function responseLocation($file)
     {
         $media_id = $this->getMediaId($file, 'location');
         $imageTpl = "<xml>
