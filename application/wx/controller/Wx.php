@@ -132,11 +132,7 @@ class WX extends Controller
     //詳情介紹
     private function content()
     {
-        return "
-            1.编辑部：010-57368789,010-57368790 /r/n
-            2.微信推广 /r/n
-            3.广告、理事会
-        ";
+        return "1.编辑部：010-57368789,010-57368790/r/n2.微信推广/r/n3.广告、理事会";
     }
 
     // 语音消息回复
