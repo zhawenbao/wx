@@ -85,8 +85,7 @@ class WX extends Controller
             case 'voice':
                 $resultStr = $this->voice();
                 break;
-            case 'location':
-
+            case 'LOCATION':
                 $resultStr = $this->location();
                 break;
             default:
