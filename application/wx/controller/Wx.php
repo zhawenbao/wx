@@ -39,7 +39,7 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-        $this->deleteMenu(); //刪除菜單
+//        $this->deleteMenu(); //刪除菜單
 //        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
@@ -50,7 +50,7 @@ class WX extends Controller
             $this->checkSignature();
         } else {
             $this->reply();
-//            $this->diyMenu();  //自定義菜單
+            $this->diyMenu();  //自定義菜單
         }
     }
 
@@ -104,7 +104,7 @@ class WX extends Controller
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
             case 'click' && '详情介绍':
-                $resultStr = $this->responseText('这是我对你的介绍');
+                $resultStr = $this->responseText($this->content());
             default:
 
                 break;
@@ -127,6 +127,18 @@ class WX extends Controller
             // $resultStr = $this->responseText('失败了兄得！');
         }
         return $resultStr;
+    }
+
+    //詳情介紹
+    private function content()
+    {
+        return "
+            1.编辑部：010-57368789,010-57368790
+            <br\/>
+            2.微信推广
+            <br\/>
+            3.广告、理事会
+        ";
     }
 
     // 语音消息回复
