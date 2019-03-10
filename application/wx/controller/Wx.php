@@ -107,7 +107,7 @@ class WX extends Controller
                 $resultStr = $this->responseText($this->content());
                 break;
             case 'location':
-                $resultStr = $this->location();
+                $resultStr = $this->responseText('地理位置信息！');
             default:
 
                 break;
