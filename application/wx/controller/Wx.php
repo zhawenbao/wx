@@ -246,6 +246,7 @@ class WX extends Controller
     // 回复图片
     private function responseImage($file)
     {
+        $media_id = $this->getMediaId($file, 'image');
 //        file_put_contents('1.jpg', file_get_contents($file));
         $imageTpl = "<xml>
                     <ToUserName><![CDATA[%s]]></ToUserName>
@@ -253,8 +254,9 @@ class WX extends Controller
                     <CreateTime>%s</CreateTime>
                     <MsgType><![CDATA[image]]></MsgType>
                     <PicUrl><![CDATA[%s]]></PicUrl>
+                    <MediaId><![CDATA[%s]]></MediaId>
                     </xml> ";
-        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $file);
+        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $file, $media_id);
         return $resultStr;
     }
 
