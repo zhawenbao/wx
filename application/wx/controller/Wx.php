@@ -49,8 +49,8 @@ class WX extends Controller
             $this->checkSignature();
         } else {
             $this->reply();
-//            $this->diyMenu();  //自定義菜單
             $this->deleteMenu(); //刪除菜單
+//            $this->diyMenu();  //自定義菜單
         }
     }
 
@@ -194,6 +194,7 @@ class WX extends Controller
     {
         $api = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $this->getAccessToken();
         $res = $this->post($api);
+        file_put_contents('delMenu.txt', json_decode($res, 1));
     }
 
     // 图灵机器人自动回复
