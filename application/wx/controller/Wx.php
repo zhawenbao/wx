@@ -86,9 +86,8 @@ class WX extends Controller
             case 'voice':
                 $resultStr = $this->voice();
                 break;
-            case 'location':
-                file_put_contents('location.txt', json_decode($this->object, 1));
-                $resultStr = $this->location();
+            case 'image':
+
                 break;
             default:
                 # code...
@@ -274,13 +273,13 @@ class WX extends Controller
         $imageTpl = "<xml>
                         <ToUserName><![CDATA[toUser]]></ToUserName>
                         <FromUserName><![CDATA[fromUser]]></FromUserName>
-                        <CreateTime>s%</CreateTime>
+                        <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[location]]></MsgType>
-                        <Location_X>s%</Location_X>
-                        <Location_Y>s%</Location_Y>
+                        <Location_X>%s</Location_X>
+                        <Location_Y>%s</Location_Y>
                         <Scale>20</Scale>
                         <Label><![CDATA[s%]]></Label>
-                        <MsgId>s%</MsgId>
+                        <MsgId>%s</MsgId>
                     </xml>";
         $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $dimension,$longitude, $address, $media_id);
         return $resultStr;
