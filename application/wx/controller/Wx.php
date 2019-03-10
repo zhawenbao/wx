@@ -247,17 +247,14 @@ class WX extends Controller
     private function responseImage($file)
     {
 //        file_put_contents('1.jpg', file_get_contents($file));
-        $media_id = $this->getMediaId($file, 'image');
         $imageTpl = "<xml>
-						  <ToUserName><![CDATA[%s]]></ToUserName>
-						  <FromUserName><![CDATA[%s]]></FromUserName>
-						  <CreateTime>%s</CreateTime>
-						  <MsgType><![CDATA[image]]></MsgType>
-						  <Image>
-						    <MediaId><![CDATA[%s]]></MediaId>
-						  </Image>
-						</xml>";
-        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $media_id);
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[image]]></MsgType>
+                    <PicUrl><![CDATA[%s]]></PicUrl>
+                    </xml> ";
+        $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $file);
         return $resultStr;
     }
 
