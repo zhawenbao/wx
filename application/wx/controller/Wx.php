@@ -104,11 +104,11 @@ class WX extends Controller
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
-            case 'click' && $this->postObj->EventKey == '详情介绍':
+            case 'click' && '详情介绍':
                 $resultStr = $this->responseText($this->content());
                 break;
-            case 'location':
-                $resultStr = $this->responseText('地理位置信息！');
+            case 'LOCATION':
+                $resultStr = $this->responseText('您当前坐标为' . $this->postObj->Latitude . ',' .$this->postObj->Latitude .',精准度为'. $this->postObj->Precision);
             default:
 
                 break;
