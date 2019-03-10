@@ -101,6 +101,9 @@ class WX extends Controller
         switch ($this->postObj->Event) {
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
+                break;
+            case 'click' && '详情介绍':
+                $resultStr = $this->responseText('这是我对你的介绍！');
             default:
 
                 break;
@@ -147,9 +150,13 @@ class WX extends Controller
                         "url": "http://www.baidu.com"
                     },
                     {
-                        "type": "view",
-                        "name": "随心听",
-                        "url": "http://www.5nd.com/fm/app.html"
+                        "name": "关于我们",
+                        "sub_button":[{
+                            "type": "click",
+                                "name": "介绍详情",
+                                "key": "介绍详情"
+                            },
+                        }]
                     },
                     {
                         "name": "商城",
@@ -238,7 +245,7 @@ class WX extends Controller
     // 回复图片
     private function location($file)
     {
-        $api = 'https://restapi.amap.com/v3/ip?key='.$this->gdKey.'ip='.$_SERVER['REMOTE_ADDR'];
+        $api = 'https://restapi.amap.com/v3/ip?key=' . $this->gdKey. 'ip=' . $_SERVER['REMOTE_ADDR'];
         $res = $this->post($api);
         file_put_contents('location.txt', json_encode($res, 1));
         $imageTpl = "<xml>

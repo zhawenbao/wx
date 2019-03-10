@@ -22,7 +22,8 @@ class Index extends Controller
 
     public function test()
     {
-        echo  1;
-        echo "今天天气很好";
+        echo ' https://open.weixin.qq.com/connect/oauth2/authorize?appid=
+wx9805e3211974d627&redirect_uri=http://cps.dianping.com/weiXinRedirect&response_type=code&scope=snsapi_base&state='.urlencode('http://106.12.197.232/wx/wx/index') ;
+
     }
 }
