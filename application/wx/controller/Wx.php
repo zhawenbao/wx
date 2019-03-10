@@ -50,7 +50,7 @@ class WX extends Controller
         } else {
             $this->reply();
 //            $this->diyMenu();  //自定義菜單
-            $this->deleteMenu; //刪除菜單
+            $this->deleteMenu(); //刪除菜單
         }
     }
 
