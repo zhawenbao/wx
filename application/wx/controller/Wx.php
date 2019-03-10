@@ -133,8 +133,8 @@ class WX extends Controller
     private function content()
     {
         return "
-            1.编辑部：010-57368789,010-57368790<br/>
-            2.微信推广<br/>
+            1.编辑部：010-57368789,010-57368790
+            2.微信推广
             3.广告、理事会
         ";
     }
