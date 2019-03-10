@@ -168,8 +168,8 @@ class WX extends Controller
                             "type": "click",
                                 "name": "介绍详情",
                                 "key": "介绍详情"
-                            },
-                        }]
+                            }
+                        ]
                     },
                     {
                         "name": "商城",
