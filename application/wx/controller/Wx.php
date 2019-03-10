@@ -104,7 +104,7 @@ class WX extends Controller
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
-            case 'CLICK':
+            case 'CLICK' && $this->postObj->EventKey == '详情介绍':
                 $resultStr = $this->responseText($this->content());
                 break;
             case 'LOCATION':
