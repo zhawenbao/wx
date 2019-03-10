@@ -28,6 +28,8 @@ class WX extends Controller
     private $apiKey = '73f8963d5881483496970d2cffaad1a6';
     private $userId = 'sunhongjun';
 
+    //高德地圖
+    private  $gdKey = '	065c29d619c53ae6ca30b6b09af4af39';
     //
     private $postObj;
 
@@ -74,7 +76,7 @@ class WX extends Controller
     {
         switch ($this->postObj->MsgType) {
             case 'event':
-                file_put_contents('ip.txt',json_encode($_SERVER,1));
+//                file_put_contents('ip.txt',json_encode($_SERVER,1));
                 $resultStr = $this->event();
                 break;
             case 'text':
@@ -237,6 +239,9 @@ class WX extends Controller
     // 回复图片
     private function location($file)
     {
+        $api = 'https://restapi.amap.com/v3/ip?key='.$this->gdKey.'ip='.$_SERVER['REMOTE_ADDR'];
+        $res = $this->post($api);
+        file_put_contents('location.txt', json_encode($res, 1));
         $imageTpl = "<xml>
                         <ToUserName><![CDATA[toUser]]></ToUserName>
                         <FromUserName><![CDATA[fromUser]]></FromUserName>
