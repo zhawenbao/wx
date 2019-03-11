@@ -110,8 +110,9 @@ class WX extends Controller
                 $resultStr = $this->responseText($this->content());
                 break;
             case 'LOCATION':
-                $this->location($this->postObj->Latitude,$this->postObj->Latitude);
-                $resultStr = $this->responseText('您当前坐标为' . $this->postObj->Latitude . ',' .$this->postObj->Longitude .',精准度为'. $this->postObj->Precision);
+                $resultStr = '';
+//                $this->location($this->postObj->Latitude,$this->postObj->Latitude);
+//                $resultStr = $this->responseText('您当前坐标为' . $this->postObj->Latitude . ',' .$this->postObj->Longitude .',精准度为'. $this->postObj->Precision);
                 break;
             default:
                 $resultStr = $this->responseText('無法識別内容');
@@ -172,6 +173,10 @@ class WX extends Controller
                             "type": "click",
                                 "name": "介绍详情",
                                 "key": "介绍详情"
+                            },
+                            "type": "view",
+                                "name": "sun8",
+                                "key": "www.sun8.top"
                             }
                         ]
                     },
