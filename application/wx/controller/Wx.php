@@ -307,6 +307,7 @@ class WX extends Controller
                       </Articles>
                    </xml>";
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), 1,'新闻', '这是一篇文章', '', '');
+        return $resultStr;
     }
 
 
