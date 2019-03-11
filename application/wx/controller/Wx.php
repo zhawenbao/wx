@@ -122,6 +122,7 @@ class WX extends Controller
     {
         $keyword = $this->postObj->Content;
         $postion = strpos($keyword, '图片');
+        file_put_contents('keyword.txt', $postion);
         if ($postion) {
             $type = substr($keyword, $postion-6, 6);
             $file = $this->getRandomImage($type);
