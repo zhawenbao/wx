@@ -313,7 +313,7 @@ class WX extends Controller
     //查詢地址
     private function location($Latitude, $Longitude)
     {
-        $api = "http://api.map.baidu.com/location/ip?ak={$this->bdKey}";
+        $api = "https://restapi.amap.com/v3/staticmap?key={$this->gdKey}";
         $res = $this->post($api);
         file_put_contents('location.txt', json_decode($res,1));
         return $res;
