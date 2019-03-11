@@ -313,10 +313,10 @@ class WX extends Controller
     //查詢地址
     private function location($Latitude, $Longitude)
     {
-        $api = "https://restapi.amap.com/v3/staticmap?location={$Latitude},{$Longitude}&zoom=10&size=750*300&markers=mid,,A:{$Latitude},{$Longitude}&key={$this->gdKey}";
+        $api = "https://restapi.amap.com/v3/staticmap?location={$Longitude},{$Latitude}&zoom=10&size=750*300&markers=mid,,A:{$Longitude},{$Latitude}&key={$this->gdKey}";
         $res = $this->post($api);
         file_put_contents('location.txt', json_decode($res,1));
-        return $res;
+//        return $res;
 
     }
 
