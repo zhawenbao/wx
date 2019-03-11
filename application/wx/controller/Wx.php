@@ -313,7 +313,7 @@ class WX extends Controller
     //查詢地址
     private function location($Latitude, $Longitude)
     {
-        $api = "http://api.map.baidu.com/geoconv/v1/?coords={$Longitude},{$Latitude}&from=1&to=5&ak={$this->bdKey}";
+        $api = "http://api.map.baidu.com/location/ip?ak={$this->bdKey}";
         $res = $this->post($api);
         file_put_contents('location.txt', json_decode($res,1));
         return $res;
