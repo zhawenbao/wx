@@ -315,8 +315,8 @@ class WX extends Controller
     {
         $api = "http://api.map.baidu.com/geoconv/v1/?coords={$Longitude},{$Latitude}&from=1&to=5&ak={$this->bdKey}";
         $res = $this->post($api);
-        return $res;
         file_put_contents('location.txt', json_decode($res,1));
+        return $res;
 
     }
 
