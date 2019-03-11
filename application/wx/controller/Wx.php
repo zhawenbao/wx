@@ -177,8 +177,8 @@ class WX extends Controller
                             },
                             {
                                 "type": "view",
-                                "name": "sun8",
-                                "url": "http://www.sun8.top"
+                                "name": "thinkPhp",
+                                "url": "http://106.22.197.232/index/index/func"
                             }
                         ]
                     },
