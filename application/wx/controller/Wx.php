@@ -29,7 +29,10 @@ class WX extends Controller
     private $userId = 'sunhongjun';
 
     //高德地圖
-    private  $gdKey = '	065c29d619c53ae6ca30b6b09af4af39';
+    private  $gdKey = '065c29d619c53ae6ca30b6b09af4af39';
+
+    //百度地图
+    private  $bdKey = '8oxITtXHk56Gb1FwjxicyPdgtDHjV3G9';
     //
     private $postObj;
 
@@ -107,7 +110,8 @@ class WX extends Controller
                 $resultStr = $this->responseText($this->content());
                 break;
             case 'LOCATION':
-                $resultStr = $this->responseText('您当前坐标为' . $this->postObj->Latitude . ',' .$this->postObj->Latitude .',精准度为'. $this->postObj->Precision);
+                $this->location($this->postObj->Latitude,$this->postObj->Latitude);
+                $resultStr = $this->responseText('您当前坐标为' . $this->postObj->Latitude . ',' .$this->postObj->Longitude .',精准度为'. $this->postObj->Precision);
                 break;
             default:
                 $resultStr = $this->responseText('無法識別内容');
@@ -264,11 +268,6 @@ class WX extends Controller
         return $resultStr;
     }
 
-    //查詢地址
-    private function location()
-    {
-
-    }
     // 回复地理信息
     private function responseLocation($file)
     {
@@ -311,6 +310,15 @@ class WX extends Controller
     }
 
 
+    //查詢地址
+    private function location($Latitude, $Longitude)
+    {
+        $api = "http://api.map.baidu.com/geoconv/v1/?coords={$Longitude},{$Latitude}&from=1&to=5&ak={$this->bdKey}";
+        $res = $this->post($api);
+        return $res;
+        file_put_contents('location.txt', json_decode($res,1));
+
+    }
 
     // 获取access_token
     private function getAccessToken()
