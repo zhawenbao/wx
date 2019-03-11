@@ -174,6 +174,7 @@ class WX extends Controller
                                 "name": "介绍详情",
                                 "key": "介绍详情"
                             },
+                            {
                             "type": "view",
                                 "name": "sun8",
                                 "key": "www.sun8.top"
