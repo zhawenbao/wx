@@ -122,12 +122,13 @@ class WX extends Controller
     {
         $keyword = $this->postObj->Content;
         $postion = strpos($keyword, '图片');
-        file_put_contents('keyword.txt', $postion);
         if ($postion) {
-            $type = substr($keyword, $postion-6, 6);
+            $type = substr($keyword, $postion - 6, 6);
             $file = $this->getRandomImage($type);
             $resultStr = $this->responseImage($file);
-        } else {
+        } elseif ($keyword == '图文') {
+            $resultStr = $this->news();
+        }else {
             $resultStr = $this->tulingText($keyword);
             // $resultStr = $this->responseText('失败了兄得！');
         }
@@ -273,19 +274,41 @@ class WX extends Controller
     {
         $media_id = $this->getMediaId($file, 'location');
         $imageTpl = "<xml>
-                        <ToUserName><![CDATA[toUser]]></ToUserName>
-                        <FromUserName><![CDATA[fromUser]]></FromUserName>
+                        <ToUserName><![CDATA[%s]]></ToUserName>
+                        <FromUserName><![CDATA[%s]]></FromUserName>
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[location]]></MsgType>
                         <Location_X>%s</Location_X>
                         <Location_Y>%s</Location_Y>
                         <Scale>20</Scale>
-                        <Label><![CDATA[s%]]></Label>
+                        <Label><![CDATA[%s]]></Label>
                         <MsgId>%s</MsgId>
                     </xml>";
         $resultStr = sprintf($imageTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), $dimension,$longitude, $address, $media_id);
         return $resultStr;
     }
+
+    //回复图文消息
+    private function news()
+    {
+        $newsTpl ="<xml>
+                      <ToUserName><![CDATA[%s]]></ToUserName>
+                      <FromUserName><![CDATA[%s]]></FromUserName>
+                      <CreateTime>%s</CreateTime>
+                      <MsgType><![CDATA[news]]></MsgType>
+                      <ArticleCount>%s</ArticleCount>
+                      <Articles>
+                        <item>
+                          <Title><![CDATA[%s]]></Title>
+                          <Description><![CDATA[%s]]></Description>
+                          <PicUrl><![CDATA[%s]]></PicUrl>
+                          <Url><![CDATA[%s]]></Url>
+                        </item>
+                      </Articles>
+                   </xml>";
+        $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(), 1,'新闻', '这是一篇文章', '', '');
+    }
+
 
 
     // 获取access_token
