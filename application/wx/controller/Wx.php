@@ -169,15 +169,16 @@ class WX extends Controller
                     },
                     {
                         "name": "关于我们",
-                        "sub_button":[{
-                            "type": "click",
+                        "sub_button":[
+                            {
+                                "type": "click",
                                 "name": "介绍详情",
                                 "key": "介绍详情"
                             },
                             {
-                            "type": "view",
+                                "type": "view",
                                 "name": "sun8",
-                                "key": "www.sun8.top"
+                                "url": "http://www.sun8.top"
                             }
                         ]
                     },
