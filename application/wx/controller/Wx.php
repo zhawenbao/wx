@@ -136,7 +136,8 @@ class WX extends Controller
     //詳情介紹
     private function content()
     {
-        return "请输入数字，查看手册：\n<a href=''> 1.thinkphp框架手册</a>\n2.laravel框架手册\n3.yii框架手册";
+        return "此功能暂未开放";
+//        return "请输入数字，查看手册：\n1.thinkphp框架手册\n2.laravel框架手册\n3.yii框架手册";
     }
 
     // 语音消息回复
@@ -171,6 +172,11 @@ class WX extends Controller
                             "type": "view",
                                 "name": "w3cschool",
                                 "url": "https://www.w3cschool.cn"
+                            },
+                            {
+                                "type": "click",
+                                "name": "php框架",
+                                "key": "php框架"
                             }
                         ]
                     },
@@ -180,11 +186,6 @@ class WX extends Controller
                                 "type": "view",
                                 "name": "cnds",
                                 "url": "https://www.csdn.net/"
-                            },
-                            {
-                                "type": "view",
-                                "name": "简书",
-                                "url": "https://www.jianshu.com/"
                             },
                             {
                                 "type": "view",
@@ -214,16 +215,6 @@ class WX extends Controller
                                 "type": "view",
                                 "name": "siki学院",
                                 "url": "http://www.sikiedu.com/"
-                            },
-                            {
-                                "type": "view",
-                                "name": "第一教程",
-                                "url": "http://video.1kejian.com/"
-                            },
-                            {
-                                "type": "click",
-                                "name": "php框架",
-                                "key": "php框架"
                             }
                         ]
                     }
