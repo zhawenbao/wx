@@ -21,8 +21,8 @@ class WX extends Controller
 {
     // 公众号
     private $token = 'weixin';
-    private $appid = 'wx9805e3211974d627';
-    private $appsecret = '909d1ef1ee5df9bc57ce57407e4a3666';
+    private $appid = 'wx108dc789f2f27af1';
+    private $appsecret = 'b356ecc9a226948fc6d2521dfa584fee';
 
     // 图灵机器人
     private $apiKey = '73f8963d5881483496970d2cffaad1a6';
