@@ -103,7 +103,7 @@ class WX extends Controller
             case 'subscribe':
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
-            case 'CLICK' && $this->postObj->EventKey == 'php框架':
+            case 'CLICK' && $this->postObj->EventKey == '介绍详情':
                 $resultStr = $this->responseText($this->content());
                 break;
             case 'LOCATION':
@@ -136,7 +136,7 @@ class WX extends Controller
     //詳情介紹
     private function content()
     {
-        return "请输入数字，查看手册：\n<a href=''> 1.thinkphp框架手册</a>\n2.laravel框架手册\n3.yii框架手册";
+        return "1.编辑部：010-57368789\n2.微信推广\n3.广告、理事会";
     }
 
     // 语音消息回复
@@ -156,74 +156,40 @@ class WX extends Controller
         $menuData = '
             {
                 "button": [{
-                        "name": "php教程",
+                        "type": "view",
+                        "name": "百度搜索",
+                        "url": "http://www.baidu.com"
+                    },
+                    {
+                        "name": "关于我们",
                         "sub_button":[{
-                            "type": "view",
-                                "name": "php手册",
-                                "url": "http://php.net"
-                            },
-                            {
-                            "type": "view",
-                                "name": "菜鸟教程",
-                                "url": "http://www.runoob.com/"
-                            },
-                            {
-                            "type": "view",
-                                "name": "w3cschool",
-                                "url": "https://www.w3cschool.cn"
+                            "type": "click",
+                                "name": "介绍详情",
+                                "key": "介绍详情"
                             }
                         ]
                     },
                     {
-                        "name": "博客",
-                        "sub_button":[{
-                                "type": "view",
-                                "name": "cnds",
-                                "url": "https://www.csdn.net/"
-                            },
-                            {
-                                "type": "view",
-                                "name": "简书",
-                                "url": "https://www.jianshu.com/"
-                            },
-                            {
-                                "type": "view",
-                                "name": "博客园",
-                                "url": "https://www.cnblogs.com/"
-                            },
-                            {
-                                "type": "view",
-                                "name": "码农网",
-                                "url": "http://www.codeceo.com/"
-                            },
-                        ]
-                    },
-                    {
-                        "name": "视频教学",
+                        "name": "商城",
                         "sub_button": [{
                                 "type": "view",
-                                "name": "慕课网",
-                                "url": "https://www.imooc.com/"
+                                "name": "京东商城",
+                                "url": "http://www.jd.com"
                             },
                             {
                                 "type": "view",
-                                "name": "腾讯视频",
-                                "url": "https://ke.qq.com/"
+                                "name": "苏宁易购",
+                                "url": "https://www.suning.com"
                             },
                             {
                                 "type": "view",
-                                "name": "siki学院",
-                                "url": "http://www.sikiedu.com/"
+                                "name": "天猫商城",
+                                "url": "https://s.click.taobao.com"
                             },
                             {
                                 "type": "view",
-                                "name": "第一教程",
-                                "url": "http://video.1kejian.com/"
-                            },
-                            {
-                                "type": "click",
-                                "name": "php框架",
-                                "key": "php框架"
+                                "name": "拼多多",
+                                "url": "https://www.pinduoduo.com"
                             }
                         ]
                     }
