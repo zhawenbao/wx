@@ -39,7 +39,7 @@ class WX extends Controller
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         $this->postObj = $postObj;
-        $this->deleteMenu(); //刪除菜單
+//        $this->deleteMenu(); //刪除菜單
 //        file_put_contents('a.txt', json_encode($postObj, 1));
     }
 
@@ -50,7 +50,7 @@ class WX extends Controller
             $this->checkSignature();
         } else {
             $this->reply();
-//            $this->diyMenu();  //自定義菜單
+            $this->diyMenu();  //自定義菜單
         }
     }
 
