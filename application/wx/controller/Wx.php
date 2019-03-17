@@ -195,7 +195,7 @@ class WX extends Controller
                                 "type": "view",
                                 "name": "码农网",
                                 "url": "http://www.codeceo.com/"
-                            },
+                            }
                         ]
                     },
                     {
