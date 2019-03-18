@@ -376,7 +376,7 @@ class WX extends Controller
                         <FromUserName><![CDATA[%s]]></FromUserName>
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[news]]></MsgType>
-                        <ArticleCount></ArticleCount>
+                        <ArticleCount>%s</ArticleCount>
                         <Articles>";
                 foreach($content as $value){
                     $newsTpl .="<item>
