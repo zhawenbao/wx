@@ -380,19 +380,18 @@ class WX extends Controller
                         <Articles>";
                 foreach($content as $value){
                     $newsTpl .="<item>
-                          <Title><![{$value['title']}]]></Title>
-                          <Description><![{$value['desc']}]]></Description>
-                          <PicUrl><![{$value['image']}]]></PicUrl>
-                          <Url><![{$value['url']}]]></Url>
-                        </item>
-                        ";
+                                <Title><![CDATA[{$value['title']}]]></Title> 
+                                <Description><![CDATA[{$value['desc']}]]></Description>
+                                <PicUrl><![CDATA[{$value['image']}]]></PicUrl>
+                                <Url><![CDATA[{$value['url']}]]></Url>
+                            </item>";
                 }
             $newsTpl .= "</Articles>
                     </xml>";
 
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
-        file_put_contents('number.txt', count($content));
-        file_put_contents('news.txt', json_encode($newsTpl));
+//        file_put_contents('number.txt', count($content));
+//        file_put_contents('news.txt', json_encode($newsTpl));
         return $resultStr;
     }
     //查詢地址
