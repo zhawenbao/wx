@@ -123,14 +123,93 @@ class WX extends Controller
     private function keyword()
     {
         $keyword = $this->postObj->Content;
-        $postion = strpos($keyword, '图片');
-        if ($postion) {
-            $type = substr($keyword, $postion-6, 6);
-            $file = $this->getRandomImage($type);
-            $resultStr = $this->responseImage($file);
-        } else {
-            $resultStr = $this->tulingText($keyword);
-            // $resultStr = $this->responseText('失败了兄得！');
+//        $postion = strpos($keyword, '图片');
+//        if ($postion) {
+//            $type = substr($keyword, $postion-6, 6);
+//            $file = $this->getRandomImage($type);
+//            $resultStr = $this->responseImage($file);
+//        } else {
+//            $resultStr = $this->tulingText($keyword);
+//            // $resultStr = $this->responseText('失败了兄得！');
+//        }
+        if ($keyword == 1) {
+            $content = [
+                [
+                    'title'    =>  'tp3.2',
+                    'desc'  =>  'thinkphp3.2框架手册',
+                    'image' =>  '',
+                    'url'   =>  'http://document.thinkphp.cn/manual_3_2.html'
+                ],
+                [
+                    'title'    =>  'tp5.0',
+                    'desc'  =>  'thinkphp5.0框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://www.kancloud.cn/manual/thinkphp5/118003'
+                ],
+                [
+                    'title'    =>  'tp5.1',
+                    'desc'  =>  'thinkphp5.1框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://www.kancloud.cn/manual/thinkphp5_1/353946'
+                ]
+            ];
+            $resultStr = $this->news($content);
+        }elseif($keyword == 2){
+            $content = [
+                [
+                    'title'    =>  'laravel5.1',
+                    'desc'  =>  'laravel5.1框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.1'
+                ],
+                [
+                    'title'    =>  'laravel5.2',
+                    'desc'  =>  'laravel5.2框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.2'
+                ],
+                [
+                    'title'    =>  'laravel5.3',
+                    'desc'  =>  'laravel5.3框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.3'
+                ],
+                [
+                    'title'    =>  'laravel5.4',
+                    'desc'  =>  'laravel5.4框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.4'
+                ],
+                [
+                    'title'    =>  'laravel5.5',
+                    'desc'  =>  'laravel5.5框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.5'
+                ],
+                [
+                    'title'    =>  'laravel5.6',
+                    'desc'  =>  'laravel5.6框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://learnku.com/docs/laravel/5.6'
+                ]
+            ];
+            $resultStr = $this->news($content);
+        }elseif($keyword == 3){
+            $content = [
+                [
+                    'title'    =>  'yii',
+                    'desc'  =>  'yii1.0框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://www.yiiframework.com/doc/guide/1.1/zh-cn/index'
+                ],
+                [
+                    'title'    =>  'yii2.0',
+                    'desc'  =>  'yii2.0框架手册',
+                    'image' =>  '',
+                    'url'   =>  'https://www.kancloud.cn/manual/yii2-guide/69671'
+                ],
+            ];
+            $resultStr = $this->news($content);
         }
         return $resultStr;
     }
@@ -138,8 +217,8 @@ class WX extends Controller
     //詳情介紹
     private function content()
     {
-        return "此功能暂未开放";
-//        return "请输入数字，查看手册：\n1.thinkphp框架手册\n2.laravel框架手册\n3.yii框架手册";
+//        return "此功能暂未开放";
+        return "请输入数字，查看手册：\n1.thinkphp框架手册\n2.laravel框架手册\n3.yii框架手册";
     }
 
     // 语音消息回复
@@ -289,6 +368,30 @@ class WX extends Controller
         return $resultStr;
     }
 
+    //回复图文消息
+    private function news($content)
+    {
+        $newsTpl = "<xml>
+                        <ToUserName><![CDATA[%s]]></ToUserName>
+                        <FromUserName><![CDATA[%s]]></FromUserName>
+                        <CreateTime>%s</CreateTime>
+                        <MsgType><![CDATA[news]]></MsgType>
+                        <ArticleCount></ArticleCount>
+                        <Articles>";
+                foreach($content as $value){
+                    $newsTpl .="<item>
+                          <Title><![{$value['title']}]></Title>
+                          <Description><![{$value['desc']}]></Description>
+                          <PicUrl><![{$value['image']}]></PicUrl>
+                          <Url><![{$value['url']}]></Url>
+                        </item>
+                        ";
+                }
+            $newsTpl .= "</Articles>
+                    </xml>";
+        $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
+        return $resultStr;
+    }
     //查詢地址
     private function location()
     {
