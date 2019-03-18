@@ -378,16 +378,19 @@ class WX extends Controller
                         <CreateTime>%s</CreateTime>
                         <MsgType><![CDATA[news]]></MsgType>
                         <ArticleCount>%s</ArticleCount>
-                        <Articles>";
+                        ";
                 foreach ($content as $value) {
-                    $newsTpl .="<item>
+                    $newsTpl .="
+                                <Articles>
+                                <item>
                                   <Title><![CDATA[{$value['title']}]]></Title>
                                   <Description><![CDATA[{$value['desc']}]]></Description>
                                   <PicUrl><![CDATA[{$value['image']}]]></PicUrl>
                                   <Url><![CDATA[{$value['url']}]]></Url>
-                                </item>";
+                                </item>
+                                </Articles>";
                 }
-            $newsTpl .= "</Articles>
+            $newsTpl .= "
                     </xml>";
 
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
