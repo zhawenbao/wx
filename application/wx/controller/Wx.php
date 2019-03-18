@@ -137,19 +137,19 @@ class WX extends Controller
                 [
                     'title'    =>  'tp3.2',
                     'desc'  =>  'thinkphp3.2框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://box.kancloud.cn/2015-12-12_566b6a10506a4.png',
                     'url'   =>  'http://document.thinkphp.cn/manual_3_2.html'
                 ],
                 [
                     'title'    =>  'tp5.0',
                     'desc'  =>  'thinkphp5.0框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://box.kancloud.cn/2015-12-12_566b6a10506a4.png',
                     'url'   =>  'https://www.kancloud.cn/manual/thinkphp5/118003'
                 ],
                 [
                     'title'    =>  'tp5.1',
                     'desc'  =>  'thinkphp5.1框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://box.kancloud.cn/2015-12-12_566b6a10506a4.png',
                     'url'   =>  'https://www.kancloud.cn/manual/thinkphp5_1/353946'
                 ]
             ];
@@ -159,37 +159,37 @@ class WX extends Controller
                 [
                     'title'    =>  'laravel5.1',
                     'desc'  =>  'laravel5.1框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.1'
                 ],
                 [
                     'title'    =>  'laravel5.2',
                     'desc'  =>  'laravel5.2框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.2'
                 ],
                 [
                     'title'    =>  'laravel5.3',
                     'desc'  =>  'laravel5.3框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.3'
                 ],
                 [
                     'title'    =>  'laravel5.4',
                     'desc'  =>  'laravel5.4框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.4'
                 ],
                 [
                     'title'    =>  'laravel5.5',
                     'desc'  =>  'laravel5.5框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.5'
                 ],
                 [
                     'title'    =>  'laravel5.6',
                     'desc'  =>  'laravel5.6框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://iocaffcdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg!/both/400x400',
                     'url'   =>  'https://learnku.com/docs/laravel/5.6'
                 ]
             ];
@@ -199,13 +199,13 @@ class WX extends Controller
                 [
                     'title'    =>  'yii',
                     'desc'  =>  'yii1.0框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://www.yiichina.com/images/logo.svg',
                     'url'   =>  'https://www.yiiframework.com/doc/guide/1.1/zh-cn/index'
                 ],
                 [
                     'title'    =>  'yii2.0',
                     'desc'  =>  'yii2.0框架手册',
-                    'image' =>  '',
+                    'image' =>  'https://www.yiichina.com/images/logo.svg',
                     'url'   =>  'https://www.kancloud.cn/manual/yii2-guide/69671'
                 ],
             ];
