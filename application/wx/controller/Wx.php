@@ -207,7 +207,7 @@ class WX extends Controller
                     'desc'  =>  'yii2.0框架手册',
                     'image' =>  'https://www.yiichina.com/images/logo.svg',
                     'url'   =>  'https://www.kancloud.cn/manual/yii2-guide/69671'
-                ],
+                ]
             ];
             $resultStr = $this->news($content);
         }
@@ -379,13 +379,13 @@ class WX extends Controller
                         <MsgType><![CDATA[news]]></MsgType>
                         <ArticleCount>%s</ArticleCount>
                         <Articles>";
-                foreach($content as $value){
+                foreach ($content as $value) {
                     $newsTpl .="<item>
-                                <Title><![CDATA[{$value['title']}]]></Title> 
-                                <Description><![CDATA[{$value['desc']}]]></Description>
-                                <PicUrl><![CDATA[{$value['image']}]]></PicUrl>
-                                <Url><![CDATA[{$value['url']}]]></Url>
-                            </item>";
+                                  <Title><![CDATA[{$value['title']}]]></Title>
+                                  <Description><![CDATA[{$value['desc']}]]></Description>
+                                  <PicUrl><![CDATA[{$value['image']}]]></PicUrl>
+                                  <Url><![CDATA[{$value['url']}]]></Url>
+                                </item>";
                 }
             $newsTpl .= "</Articles>
                     </xml>";
