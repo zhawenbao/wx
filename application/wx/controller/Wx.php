@@ -389,6 +389,7 @@ class WX extends Controller
                 }
             $newsTpl .= "</Articles>
                     </xml>";
+                file_put_contents('news.txt', json_encode($newsTpl));
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
         return $resultStr;
     }
