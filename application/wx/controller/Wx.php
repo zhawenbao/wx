@@ -391,6 +391,7 @@ class WX extends Controller
                     </xml>";
 
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
+        file_put_contents('number.txt', count($content));
         file_put_contents('news.txt', json_encode($newsTpl));
         return $resultStr;
     }
