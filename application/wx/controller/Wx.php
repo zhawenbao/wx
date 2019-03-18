@@ -211,6 +211,7 @@ class WX extends Controller
             ];
             $resultStr = $this->news($content);
         }
+        file_put_contents('news.txt', json_encode($resultStr));
         return $resultStr;
     }
 
@@ -391,7 +392,6 @@ class WX extends Controller
 
         $resultStr = sprintf($newsTpl, $this->postObj->FromUserName, $this->postObj->ToUserName, time(),count($content));
 //        file_put_contents('number.txt', count($content));
-        file_put_contents('news.txt', json_encode($newsTpl));
         return $resultStr;
     }
     //查詢地址
