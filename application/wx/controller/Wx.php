@@ -380,10 +380,10 @@ class WX extends Controller
                         <Articles>";
                 foreach($content as $value){
                     $newsTpl .="<item>
-                          <Title><![{$value['title']}]></Title>
-                          <Description><![{$value['desc']}]></Description>
-                          <PicUrl><![{$value['image']}]></PicUrl>
-                          <Url><![{$value['url']}]></Url>
+                          <Title><![{$value['title']}]]></Title>
+                          <Description><![{$value['desc']}]]></Description>
+                          <PicUrl><![{$value['image']}]]></PicUrl>
+                          <Url><![{$value['url']}]]></Url>
                         </item>
                         ";
                 }
