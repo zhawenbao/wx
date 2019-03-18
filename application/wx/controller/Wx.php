@@ -132,7 +132,7 @@ class WX extends Controller
 //            $resultStr = $this->tulingText($keyword);
 //            // $resultStr = $this->responseText('失败了兄得！');
 //        }
-        if ($keyword == 1) {
+        if ($keyword == '1') {
             $content = [
                 [
                     'title'    =>  'tp3.2',
@@ -154,7 +154,7 @@ class WX extends Controller
                 ]
             ];
             $resultStr = $this->news($content);
-        }elseif($keyword == 2){
+        }elseif($keyword == '2'){
             $content = [
                 [
                     'title'    =>  'laravel5.1',
@@ -194,7 +194,7 @@ class WX extends Controller
                 ]
             ];
             $resultStr = $this->news($content);
-        }elseif($keyword == 3){
+        }elseif($keyword == '3'){
             $content = [
                 [
                     'title'    =>  'yii',
