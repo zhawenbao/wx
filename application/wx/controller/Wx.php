@@ -103,6 +103,7 @@ class WX extends Controller
     {
         switch ($this->postObj->Event) {
             case 'subscribe':
+                $this->userInfo($this->postObj->FromUserName);
                 $resultStr = $this->responseText('谢谢你的关注！');
                 break;
             case 'CLICK' && $this->postObj->EventKey == 'php框架':
@@ -211,7 +212,7 @@ class WX extends Controller
             ];
             $resultStr = $this->news($content);
         }
-        file_put_contents('news.txt', json_encode($resultStr));
+        file_put_contents('./log/news.txt', json_encode($resultStr));
         return $resultStr;
     }
 
@@ -460,6 +461,17 @@ class WX extends Controller
         $res = $this->post($api);
         $file = json_decode($res, 1)['data'][0]['url'];
         return $file;
+    }
+
+    //获取用户信息
+    public function userInfo($openId)
+    {
+        $access_token = $this->getAccessToken();
+        $api = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openId}&lang=zh_CN";
+        $userInfo = $this->post($api);
+        file_put_contents('./log/userInfo.txt', $userInfo, FILE_APPEND);
+        \Redis::set("userinfo", $userInfo);
+        return $userInfo;
     }
 
     // http请求

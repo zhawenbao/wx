@@ -244,5 +244,15 @@ return [
     //wx配置文件
     'wxConfig'              =>  [
 
+    ],
+
+    // redis缓存
+    'redis'   =>  [
+        'type'   => 'Redis',
+        'host'   => '127.0.0.1',
+        'port'   => '6379',
+        'password' => '',
+        'timeout'=> 0
     ]
+
 ];

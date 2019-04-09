@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\cache\driver\Redis;
 
 class Index extends Controller
 {
@@ -20,10 +21,27 @@ class Index extends Controller
         return 1;
     }
 
-    public function test()
+    public function phpInfo()
     {
-        echo ' https://open.weixin.qq.com/connect/oauth2/authorize?appid=
-wx9805e3211974d627&redirect_uri=http://cps.dianping.com/weiXinRedirect&response_type=code&scope=snsapi_base&state='.urlencode('http://106.12.197.232/wx/wx/index') ;
+        echo phpinfo();
 
+    }
+
+    public function setRedis()
+    {
+        $redis = new Redis();
+        $res = $redis->set('username', 'zhangsan');
+        if($res){
+            return 'success';
+        }else{
+            return 'error';
+        }
+    }
+
+    public function getRedis()
+    {
+        $redis = new Redis();
+        $userInfo = $redis->get('username');
+        echo $userInfo;
     }
 }

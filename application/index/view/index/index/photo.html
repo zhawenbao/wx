@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>x x x</title>
+    <style >
+        .imgmess{
+            padding: 0.4rem 0.3rem;
+            overflow: hidden;
+        }
+        .imgmess .pics{
+            width: 1.6rem;
+            height: 1.6rem;
+            /*background: url(img/icon.png) no-repeat -2.88rem -2.88rem;  //这是自己定义的背景图！！*/
+            background: #000;
+        background-size: 8.64rem;
+            position: relative;
+            float: left;
+        }
+        .imgmess .pics input{
+            width: 100%;
+            height:100%;
+            position: absolute;
+            left:0;
+            top:0;
+            opacity: 0;
+        }
+    </style>
+    <script>
+        document.querySelector("html").style.fontSize = document.documentElement.clientWidth/375*50+"px";
+    </script>
+</head>
+<body>
+<div class="imgmess">
+    <div class="pics">
+        <input type="file" id="my_img"/>
+    </div>
+</div>
+<script src="__STATIC__/js/jquery.min.js"></script>
+<script src="__STATIC__/js/localResizeIMG.js"></script>
+<script src="__STATIC__/js/mobileBUGFix.mini.js"></script>
+<script src="__STATIC__/js/ResizeIMG.js"></script>
+<script>
+    $(function () {
+        //上传图片!!!!!!!!!!!!!!!!!!!!
+        $('#my_img').ResizeIMG({
+            width: 100,
+            quality: 1.0,
+            success: function (result) {
+                console.log(result);
+                var img = new Image();
+                img.src = result.base64;
+                console.log(result.base64);
+                $(".pics").before(img);
+            }
+        });
+        var rem_width=parseInt($("body").css("width"))/7.5;
+        $(".yb-view").scrollLeft(1.44*rem_width);
+    });
+</script>
+</body>
+</html>
