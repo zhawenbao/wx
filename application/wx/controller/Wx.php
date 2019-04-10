@@ -9,7 +9,7 @@
 namespace app\wx\controller;
 
 
-use app\index\model\User;
+use app\wx\model\User;
 use think\Controller;
 use think\Request;
 use think\cache\driver\Redis;
