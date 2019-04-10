@@ -476,7 +476,7 @@ class WX extends Controller
         $userInfo = $this->post($api);
         //保存到数据库中
         $userModel = new User();
-        $userResult = $userModel->add(json_encode($userInfo));
+        $userResult = $userModel->add(json_encode($userInfo, 1));
         if(!$userResult){
             //失败保存日志
             file_put_contents('./log/userInfo.txt', $userInfo, FILE_APPEND);
