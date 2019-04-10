@@ -475,7 +475,8 @@ class WX extends Controller
         $api = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openId}&lang=zh_CN";
         $userInfo = $this->post($api);
         //保存到数据库中
-        $userResult = User::create(json_encode($userInfo));
+        $userModel = new User();
+        $userResult = $userModel->add(json_encode($userInfo));
         if(!$userResult){
             //失败保存日志
             file_put_contents('./log/userInfo.txt', $userInfo, FILE_APPEND);
