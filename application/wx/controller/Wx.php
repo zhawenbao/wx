@@ -9,8 +9,10 @@
 namespace app\wx\controller;
 
 
+use app\index\model\User;
 use think\Controller;
 use think\Request;
+use think\cache\driver\Redis;
 
 /**
  * wechat php test
@@ -34,9 +36,12 @@ class WX extends Controller
     private  $gdKey = '	065c29d619c53ae6ca30b6b09af4af39';
     //
     private $postObj;
+    private $redis;
 
     public function _initialize()
     {
+        $redis = new Redis();
+        if ($redis){$this->redis = $redis;} //实例化redis
         $postStr = file_get_contents('php://input');
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -469,8 +474,12 @@ class WX extends Controller
         $access_token = $this->getAccessToken();
         $api = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={$access_token}&openid={$openId}&lang=zh_CN";
         $userInfo = $this->post($api);
-        file_put_contents('./log/userInfo.txt', $userInfo, FILE_APPEND);
-        \Redis::set("userinfo", $userInfo);
+        //保存到数据库中
+        $userResult = User::create(json_encode($userInfo));
+        if(!$userResult){
+            //失败保存日志
+            file_put_contents('./log/userInfo.txt', $userInfo, FILE_APPEND);
+        }
         return $userInfo;
     }
 
